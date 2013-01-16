@@ -1,5 +1,8 @@
 StatsInfo::Application.routes.draw do
 
+  resources :sales
+
+
   resources :customers
 
   resources :products
