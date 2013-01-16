@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer_code: MyString
+  name: MyString
+  cont: MyString
+  address: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  start_date: 2013-01-16
+  order: 1
+  order_avg: 9.99
+  buy: 9.99
+  buy_avg: 9.99
+  quanbuy: 9.99
+  quanbuy_avg: 9.99
+  contact: 1
+  credit_limit: MyString
+  late: 1
+  group_id: 1
+  area_id: 1
+
+two:
+  customer_code: MyString
+  name: MyString
+  cont: MyString
+  address: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  start_date: 2013-01-16
+  order: 1
+  order_avg: 9.99
+  buy: 9.99
+  buy_avg: 9.99
+  quanbuy: 9.99
+  quanbuy_avg: 9.99
+  contact: 1
+  credit_limit: MyString
+  late: 1
+  group_id: 1
+  area_id: 1
