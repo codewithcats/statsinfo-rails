@@ -1,6 +1,8 @@
 StatsInfo::Application.routes.draw do
+
   resources :customers
 
+  resources :products
 
   resources :product_categories
 
