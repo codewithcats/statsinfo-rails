@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116075920) do
+ActiveRecord::Schema.define(:version => 20130116120942) do
 
   create_table "customer_areas", :force => true do |t|
     t.string   "area_code"
@@ -27,6 +27,30 @@ ActiveRecord::Schema.define(:version => 20130116075920) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "customers", :force => true do |t|
+    t.string   "customer_code"
+    t.string   "name"
+    t.string   "cont"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.date     "start_date"
+    t.integer  "order"
+    t.decimal  "order_avg",     :precision => 10, :scale => 0
+    t.decimal  "buy",           :precision => 10, :scale => 0
+    t.decimal  "buy_avg",       :precision => 10, :scale => 0
+    t.decimal  "quanbuy",       :precision => 10, :scale => 0
+    t.decimal  "quanbuy_avg",   :precision => 10, :scale => 0
+    t.integer  "contact"
+    t.string   "credit_limit"
+    t.integer  "late"
+    t.integer  "group_id"
+    t.integer  "area_id"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+  end
+
   create_table "product_categories", :force => true do |t|
     t.string   "category_code"
     t.string   "name"
@@ -40,5 +64,20 @@ ActiveRecord::Schema.define(:version => 20130116075920) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "products", :force => true do |t|
+    t.string   "code"
+    t.string   "name_th"
+    t.string   "name_eng"
+    t.decimal  "price",            :precision => 10, :scale => 0
+    t.string   "description"
+    t.integer  "product_group_id"
+    t.integer  "product_cat_id"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
+
+  add_index "products", ["product_cat_id"], :name => "fk_products_productcat_idx"
+  add_index "products", ["product_group_id"], :name => "fk_products_productgroups_idx"
 
 end
