@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116123300) do
+ActiveRecord::Schema.define(:version => 20130116130334) do
 
   create_table "customer_areas", :force => true do |t|
     t.string   "area_code"
@@ -79,6 +79,20 @@ ActiveRecord::Schema.define(:version => 20130116123300) do
 
   add_index "products", ["product_cat_id"], :name => "fk_products_productcat_idx"
   add_index "products", ["product_group_id"], :name => "fk_products_productgroups_idx"
+
+  create_table "sale_lines", :force => true do |t|
+    t.string   "sale_line_code"
+    t.integer  "sale_id"
+    t.string   "product_name"
+    t.integer  "order_amount"
+    t.decimal  "price_unit",     :precision => 10, :scale => 0
+    t.decimal  "discount",       :precision => 10, :scale => 0
+    t.decimal  "subtotal",       :precision => 10, :scale => 0
+    t.integer  "product_id"
+    t.date     "date"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+  end
 
   create_table "sales", :force => true do |t|
     t.string   "sale_code"
