@@ -24,6 +24,9 @@ gem 'jquery-rails'
 
 gem 'mysql2'
 
+gem 'bootstrap-sass', '~> 2.2.2.0'
+gem 'font-awesome-sass-rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
