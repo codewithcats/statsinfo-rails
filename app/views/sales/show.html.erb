@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sale code:</b>
+  <%= @sale.sale_code %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @sale.date %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @sale.amount %>
+</p>
+
+<p>
+  <b>Vat rate:</b>
+  <%= @sale.vat_rate %>
+</p>
+
+<p>
+  <b>Vat amount:</b>
+  <%= @sale.vat_amount %>
+</p>
+
+<p>
+  <b>Remark:</b>
+  <%= @sale.remark %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @sale.customer_id %>
+</p>
+
+<p>
+  <b>Time code:</b>
+  <%= @sale.time_code %>
+</p>
+
+<p>
+  <b>User code:</b>
+  <%= @sale.user_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<%= link_to 'Back', sales_path %>
