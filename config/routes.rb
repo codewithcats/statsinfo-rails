@@ -1,5 +1,7 @@
 StatsInfo::Application.routes.draw do
 
+  get "xls_import/import"
+
   resources :sale_lines
 
 
