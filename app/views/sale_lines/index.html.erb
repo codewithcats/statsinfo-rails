@@ -1,0 +1,39 @@
+<h1>Listing sale_lines</h1>
+
+<table>
+  <tr>
+    <th>Sale line code</th>
+    <th>Sale</th>
+    <th>Product name</th>
+    <th>Order amount</th>
+    <th>Price unit</th>
+    <th>Discount</th>
+    <th>Subtotal</th>
+    <th>Product</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sale_lines.each do |sale_line| %>
+  <tr>
+    <td><%= sale_line.sale_line_code %></td>
+    <td><%= sale_line.sale_id %></td>
+    <td><%= sale_line.product_name %></td>
+    <td><%= sale_line.order_amount %></td>
+    <td><%= sale_line.price_unit %></td>
+    <td><%= sale_line.discount %></td>
+    <td><%= sale_line.subtotal %></td>
+    <td><%= sale_line.product_id %></td>
+    <td><%= sale_line.date %></td>
+    <td><%= link_to 'Show', sale_line %></td>
+    <td><%= link_to 'Edit', edit_sale_line_path(sale_line) %></td>
+    <td><%= link_to 'Destroy', sale_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sale line', new_sale_line_path %>

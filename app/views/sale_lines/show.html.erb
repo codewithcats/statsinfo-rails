@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sale line code:</b>
+  <%= @sale_line.sale_line_code %>
+</p>
+
+<p>
+  <b>Sale:</b>
+  <%= @sale_line.sale_id %>
+</p>
+
+<p>
+  <b>Product name:</b>
+  <%= @sale_line.product_name %>
+</p>
+
+<p>
+  <b>Order amount:</b>
+  <%= @sale_line.order_amount %>
+</p>
+
+<p>
+  <b>Price unit:</b>
+  <%= @sale_line.price_unit %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%= @sale_line.discount %>
+</p>
+
+<p>
+  <b>Subtotal:</b>
+  <%= @sale_line.subtotal %>
+</p>
+
+<p>
+  <b>Product:</b>
+  <%= @sale_line.product_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @sale_line.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_sale_line_path(@sale_line) %> |
+<%= link_to 'Back', sale_lines_path %>

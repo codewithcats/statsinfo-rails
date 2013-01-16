@@ -1,5 +1,8 @@
 StatsInfo::Application.routes.draw do
 
+  resources :sale_lines
+
+
   resources :sales
 
 

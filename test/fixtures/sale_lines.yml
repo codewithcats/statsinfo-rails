@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sale_line_code: MyString
+  sale_id: 1
+  product_name: MyString
+  order_amount: 1
+  price_unit: 9.99
+  discount: 9.99
+  subtotal: 9.99
+  product_id: 1
+  date: 2013-01-16
+
+two:
+  sale_line_code: MyString
+  sale_id: 1
+  product_name: MyString
+  order_amount: 1
+  price_unit: 9.99
+  discount: 9.99
+  subtotal: 9.99
+  product_id: 1
+  date: 2013-01-16
