@@ -21,6 +21,9 @@ StatsInfo::Application.routes.draw do
 
   resources :customer_areas
 
+  match 'import' => 'xls_import#index'
+  match 'import/process' => 'xls_import#import'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -71,7 +74,7 @@ StatsInfo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'customer_areas#index'
+  root :to => 'sale_lines#index'
 
   # See how all your routes lay out with "rake routes"
 

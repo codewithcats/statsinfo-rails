@@ -1,0 +1,5 @@
+<h1>Import Data</h1>
+<%= form_tag 'import/process', :multipart => true do  %>
+  <%= file_field :xls, :file %>
+  <%= submit_tag "Import" %>
+<% end %>
