@@ -1,0 +1,59 @@
+<h1>Listing customers</h1>
+
+<table class="table">
+  <tr>
+    <th>Customer code</th>
+    <th>Name</th>
+    <th>Cont</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Fax</th>
+    <th>Email</th>
+    <th>Start date</th>
+    <th>Order</th>
+    <th>Order avg</th>
+    <th>Buy</th>
+    <th>Buy avg</th>
+    <th>Quanbuy</th>
+    <th>Quanbuy avg</th>
+    <th>Contact</th>
+    <th>Credit limit</th>
+    <th>Late</th>
+    <th>Group</th>
+    <th>Area</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.customer_code %></td>
+    <td><%= customer.name %></td>
+    <td><%= customer.cont %></td>
+    <td><%= customer.address %></td>
+    <td><%= customer.phone %></td>
+    <td><%= customer.fax %></td>
+    <td><%= customer.email %></td>
+    <td><%= customer.start_date %></td>
+    <td><%= customer.order %></td>
+    <td><%= customer.order_avg %></td>
+    <td><%= customer.buy %></td>
+    <td><%= customer.buy_avg %></td>
+    <td><%= customer.quanbuy %></td>
+    <td><%= customer.quanbuy_avg %></td>
+    <td><%= customer.contact %></td>
+    <td><%= customer.credit_limit %></td>
+    <td><%= customer.late %></td>
+    <td><%= customer.group_id %></td>
+    <td><%= customer.area_id %></td>
+    <td><%= link_to 'Show', customer %></td>
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer', new_customer_path %>
