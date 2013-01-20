@@ -1,5 +1,4 @@
 class XlsImportController < ApplicationController
-<<<<<<< HEAD
 	def index
 		respond_to do |format|
 			format.html
@@ -9,48 +8,36 @@ class XlsImportController < ApplicationController
     require 'fileutils'
     require 'spreadsheet'
   	tmp = params[:xls][:file].tempfile
-    #file = File.join("public", params[:xls][:file].original_filename)
-    #FileUtils.cp tmp.path, file
     book = Spreadsheet.open tmp
     cusarea_sheet = book.worksheet 4
-    cusarea_sheet.each 1 do |row|
-      ca = CustomerArea.new
-      ca.area_code = row[0]
-      ca.name = row[1]
-      ca.save
+    cusarea_sheet.each 1 do |r|
+      CustomerArea.create area_code: r[0], name: r[1]
     end
     cusgroup_sheet = book.worksheet 5
-    cusgroup_sheet.each 1 do |row|
-      cg = CustomerGroup.new
-      cg.group_code = row[0]
-      cg.name = row[1]
-      cg.save
+    cusgroup_sheet.each 1 do |r|
+      CustomerGroup.create group_code: r[0], name: r[1]
     end
     pgroup_sheet = book.worksheet 6
     pgroup_sheet.each 1 do |r|
-      pg = ProductGroup.new
-      pg.group_code = r[0]
-      pg.name = r[1]
-      pg.save
+      ProductGroup.create group_code: r[0], name: r[1]
     end
     pcat_sheet = book.worksheet 7
     pcat_sheet.each 1 do |r|
-      pc = ProductCategory.new
-      pc.category_code = r[0]
-      pc.name = r[1]
-      pc.save
+      ProductCategory.create category_code: r[0], name: r[1]
     end
     product_sheet = book.worksheet 1
     product_sheet.each 1 do |r|
-      p = Product.new
-      p.code = r[0]
-      p.description = r[1]
-      p.name_eng = r[2]
-      p.name_th = r[3]
-      p.price = r[4]
-      ProductCategory.where("category_code = '#{r[5]}'") { |c| p.product_cat_id = c.id }
-      ProductGroup.where("group_code = '#{r[6]}'") { |g| p.product_group_id = g.id }
-      p.save
+      group = ProductGroup.find_by_group_code r[5]
+      category = ProductCategory.find_by_category_code r[6]
+      Product.create(
+        code: r[0],
+        name_th: r[1],
+        name_eng: r[2],
+        price: r[3],
+        description: r[4],
+        product_cat_id: category.id,
+        product_group_id: group.id
+      )
     end
     cus_sheet = book.worksheet 0
     cus_sheet.each 1 do |r|

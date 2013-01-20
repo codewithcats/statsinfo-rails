@@ -5,9 +5,9 @@ class CreateSaleLines < ActiveRecord::Migration
       t.integer :sale_id
       t.string :product_name
       t.integer :order_amount
-      t.decimal :price_unit
-      t.decimal :discount
-      t.decimal :subtotal
+      t.decimal :price_unit, :precision => 16, :scale => 6
+      t.decimal :discount, :precision => 16, :scale => 6
+      t.decimal :subtotal, :precision => 16, :scale => 6
       t.integer :product_id
       t.date :date
 

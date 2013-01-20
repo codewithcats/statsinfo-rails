@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(:version => 20130116130334) do
     t.date     "start_date"
     t.integer  "order"
     t.decimal  "order_avg",     :precision => 10, :scale => 0
-    t.decimal  "buy",           :precision => 10, :scale => 0
-    t.decimal  "buy_avg",       :precision => 10, :scale => 0
-    t.decimal  "quanbuy",       :precision => 10, :scale => 0
-    t.decimal  "quanbuy_avg",   :precision => 10, :scale => 0
+    t.decimal  "buy",           :precision => 16, :scale => 6
+    t.decimal  "buy_avg",       :precision => 16, :scale => 6
+    t.decimal  "quanbuy",       :precision => 16, :scale => 6
+    t.decimal  "quanbuy_avg",   :precision => 16, :scale => 6
     t.integer  "contact"
     t.string   "credit_limit"
     t.integer  "late"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130116130334) do
     t.string   "code"
     t.string   "name_th"
     t.string   "name_eng"
-    t.decimal  "price",            :precision => 10, :scale => 0
+    t.decimal  "price",            :precision => 16, :scale => 6
     t.string   "description"
     t.integer  "product_group_id"
     t.integer  "product_cat_id"
@@ -77,17 +77,14 @@ ActiveRecord::Schema.define(:version => 20130116130334) do
     t.datetime "updated_at",                                      :null => false
   end
 
-  add_index "products", ["product_cat_id"], :name => "fk_products_productcat_idx"
-  add_index "products", ["product_group_id"], :name => "fk_products_productgroups_idx"
-
   create_table "sale_lines", :force => true do |t|
     t.string   "sale_line_code"
     t.integer  "sale_id"
     t.string   "product_name"
     t.integer  "order_amount"
-    t.decimal  "price_unit",     :precision => 10, :scale => 0
-    t.decimal  "discount",       :precision => 10, :scale => 0
-    t.decimal  "subtotal",       :precision => 10, :scale => 0
+    t.decimal  "price_unit",     :precision => 16, :scale => 6
+    t.decimal  "discount",       :precision => 16, :scale => 6
+    t.decimal  "subtotal",       :precision => 16, :scale => 6
     t.integer  "product_id"
     t.date     "date"
     t.datetime "created_at",                                    :null => false
@@ -97,9 +94,9 @@ ActiveRecord::Schema.define(:version => 20130116130334) do
   create_table "sales", :force => true do |t|
     t.string   "sale_code"
     t.date     "date"
-    t.decimal  "amount",      :precision => 10, :scale => 0
-    t.decimal  "vat_rate",    :precision => 10, :scale => 0
-    t.decimal  "vat_amount",  :precision => 10, :scale => 0
+    t.decimal  "amount",      :precision => 16, :scale => 6
+    t.decimal  "vat_rate",    :precision => 16, :scale => 6
+    t.decimal  "vat_amount",  :precision => 16, :scale => 6
     t.string   "remark"
     t.integer  "customer_id"
     t.string   "time_code"

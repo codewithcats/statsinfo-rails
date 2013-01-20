@@ -11,10 +11,10 @@ class CreateCustomers < ActiveRecord::Migration
       t.date :start_date
       t.integer :order
       t.decimal :order_avg
-      t.decimal :buy
-      t.decimal :buy_avg
-      t.decimal :quanbuy
-      t.decimal :quanbuy_avg
+      t.decimal :buy, :precision => 16, :scale => 6
+      t.decimal :buy_avg, :precision => 16, :scale => 6
+      t.decimal :quanbuy, :precision => 16, :scale => 6
+      t.decimal :quanbuy_avg, :precision => 16, :scale => 6
       t.integer :contact
       t.string :credit_limit
       t.integer :late

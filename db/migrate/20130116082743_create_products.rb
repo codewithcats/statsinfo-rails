@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :code
       t.string :name_th
       t.string :name_eng
-      t.decimal :price
+      t.decimal :price, :precision => 16, :scale => 6
       t.string :description
       t.integer :product_group_id
       t.integer :product_cat_id
