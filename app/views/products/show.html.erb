@@ -27,12 +27,12 @@
 
 <p>
   <b>Product group:</b>
-  <%= @product.product_group_id %>
+  <%= @product.product_group.name if @product.product_group %>
 </p>
 
 <p>
   <b>Product cat:</b>
-  <%= @product.product_cat_id %>
+  <%= @product.product_category.name if @product.product_category %>
 </p>
 
 
