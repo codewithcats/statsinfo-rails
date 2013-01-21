@@ -41,15 +41,29 @@ class XlsImportController < ApplicationController
     end
     cus_sheet = book.worksheet 0
     cus_sheet.each 1 do |r|
-      c = Customer.new
-      c.customer_code = r[0]
-      c.name = r[1]
-      c.cont = r[2]
-      c.address = r[3]
-      c.phone = r[4]
-      c.fax = r[5]
-      c.email = r[6]
-      c.save
+      group = CustomerGroup.find_by_group_code r[17]
+      area = CustomerArea.find_by_area_code r[18]
+      Customer.create(
+      	customer_code:  r[0],
+      	name:  r[1],
+      	cont: r[2],
+      	address: r[3],
+      	phone: r[4],
+      	fax: r[5],
+      	email: r[6],
+        start_date: r[7],
+        order: r[8],
+        order_avg: r[9],
+        buy: r[10],
+        buy_avg: r[11],
+        quanbuy: r[12],
+        quanbuy_avg: r[13],
+        contact: r[14],
+        credit_limit: r[15],
+        late: r[16],
+        group_id: (group.id if group),
+        area_id: (area.id if area)
+      )
     end
     respond_to do |format|
       format.html { redirect_to '/customers' }

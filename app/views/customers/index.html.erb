@@ -35,7 +35,7 @@
     <td><%= customer.phone %></td>
     <td><%= customer.fax %></td>
     <td><%= customer.email %></td>
-    <td><%= customer.start_date %></td>
+    <td><%= customer.start_date.strftime('%d/%m/%Y') if customer.start_date %></td>
     <td><%= customer.order %></td>
     <td><%= customer.order_avg %></td>
     <td><%= customer.buy %></td>
@@ -45,8 +45,8 @@
     <td><%= customer.contact %></td>
     <td><%= customer.credit_limit %></td>
     <td><%= customer.late %></td>
-    <td><%= customer.group_id %></td>
-    <td><%= customer.area_id %></td>
+    <td><%= customer.customer_group.name if customer.customer_group %></td>
+    <td><%= customer.customer_area.name if customer.customer_area %></td>
     <td><%= link_to 'Show', customer %></td>
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
     <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
