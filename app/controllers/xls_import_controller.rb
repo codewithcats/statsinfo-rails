@@ -65,6 +65,21 @@ class XlsImportController < ApplicationController
         area_id: (area.id if area)
       )
     end
+    sale_sheet = book.worksheet 2
+    sale_sheet.each 1 do |r|
+      customer = Customer.find_by_customer_code r[6]
+      Sale.create(
+        sale_code: r[0],
+        date: r[1],
+        amount: r[2],
+        vat_rate: r[3],
+        vat_amount: r[4],
+        remark: r[5],
+        customer_id: (customer.id if customer),
+        time_code: r[7],
+        user_code: r[8]
+      )
+    end
     respond_to do |format|
       format.html { redirect_to '/customers' }
     end
